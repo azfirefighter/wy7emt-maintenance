@@ -4,18 +4,17 @@
 <link rel="stylesheet" href="styling.css">
 </head>
 <body>
-
-![WY7EMT.RADIO Site Logo](/images/wy7emt-dm42ne-rko-200px.webp)
+<header>
+<img src="/images/wy7emt-dm42ne-rko-200px.webp" alt="WY7EMT Logo" style="text-align:center">
 
 <div class="navbar">
   <a class="active" href="#">Home</a>
   <a href='mailt&#111;&#58;&#119;y%37e&#109;&#116;&#64;&#119;y%3&#55;emt&#46;r&#37;61d&#105;o'>:email: Contact</a>
 </div>
 
-# WY7EMT.RADIO
-
+<h1 style="text-align:center">WY7EMT.RADIO - MAINTENANCE</h1>
 Unfortunately, this site is currently undergoing maintenance for the rest of the month.
 
 Please check back on 1 June 2026.
 
-![WY7EMT.RADIO Maintenance Icon.](/images/maintenance.png)
+<img src="/images/maintenance.png" alt="Maintenance Icon" style="text-align:center">

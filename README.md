@@ -11,10 +11,14 @@
   <a class="active" href="#">Home</a>
   <a href='mailt&#111;&#58;&#119;y%37e&#109;&#116;&#64;&#119;y%3&#55;emt&#46;r&#37;61d&#105;o'>:email: Contact</a>
 </div>
-
+</header>
+<main>
 <h1 style="text-align:center">WY7EMT.RADIO - MAINTENANCE</h1>
 Unfortunately, this site is currently undergoing maintenance for the rest of the month.
 
 Please check back on 1 June 2026.
 
 <img src="/images/maintenance.png" alt="Maintenance Icon" style="text-align:center">
+</main>
+<body>
+</html>

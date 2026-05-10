@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/styling.css">
 </head>
 <body>
@@ -18,10 +17,8 @@ Please check back on 1 June 2026.
 <!-- Load an icon library -->
 
 <div class="navbar">
-  <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
-  <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-  <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+  <a class="active" href="/">:house: Home</a>
+  <a href='mailt&#111;&#58;&#119;y%37e&#109;&#116;&#64;&#119;y%3&#55;emt&#46;r&#37;61d&#105;o'>:email: Contact</a>
 </div>
 
 </body>

@@ -4,7 +4,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/styling.css">
 </head>
-</body>
+<body>
+
 ![WY7EMT.RADIO Site Logo](/images/wy7emt-dm42ne-rko-200px.webp)
 # WY7EMT.RADIO
 
@@ -22,5 +23,6 @@ Please check back on 1 June 2026.
   <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
   <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
 </div>
+
 </body>
 </html>

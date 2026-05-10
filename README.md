@@ -9,7 +9,7 @@ Please check back on 1 June 2026.
 
 <!-- Load an icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/styling.css">
 <div class="navbar">
   <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
   <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>

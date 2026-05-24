@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://hampager.de/assets/img/favicon.png">
+    <title>DAPNET Sender</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+<div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
+    <img src="https://hampager.de/assets/img/dapnet-logo.1b696f1.png" alt="DAPNET Logo" class="mx-auto mb-4 w-32">
+    <h2 class="text-xl font-bold mb-4">DAPNET Message Sender</h2>
+    <div class="mb-2 text-left">
+        <label class="block text-sm font-medium">Callsign</label>
+        <input id="callsign" type="text" class="w-full border p-2 rounded" placeholder="Your Callsign">
+    </div>
+    <div class="mb-2 text-left">
+        <label class="block text-sm font-medium">Password</label>
+        <input id="password" type="password" class="w-full border p-2 rounded" placeholder="Your Password">
+    </div>
+    <button onclick="saveCredentials()" class="bg-blue-500 text-white p-2 rounded w-full mb-4">Save Credentials</button>
+    <div class="mb-2 text-left">
+        <label class="block text-sm font-medium">Destination Callsign</label>
+        <input id="destination" type="text" class="w-full border p-2 rounded" placeholder="Destination Callsign">
+    </div>
+    <div class="mb-4 relative text-left">
+        <label class="block text-sm font-medium">Message</label>
+        <textarea id="message" class="w-full border p-2 rounded" placeholder="Your Message" maxlength="80" oninput="updateCharCount()"></textarea>
+        <span id="charCount" class="text-xs text-gray-500 absolute bottom-2 right-2">80/80</span>
+    </div>
+    <button onclick="sendMessage()" class="bg-green-500 text-white p-2 rounded w-full relative">
+        <span id="sendText">Send</span>
+        <span id="loading" class="hidden absolute inset-0 flex items-center justify-center">
+                <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+            </span>
+    </button>
+</div>
+
+<script>
+    function saveCredentials() {
+        const callsign = document.getElementById('callsign').value;
+        const password = document.getElementById('password').value;
+        document.cookie = `callsign=${callsign};path=/`;
+        document.cookie = `password=${password};path=/`;
+        alert('Credentials saved!');
+    }
+
+    function getCookie(name) {
+        const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? match[2] : '';
+    }
+
+    function updateCharCount() {
+        const message = document.getElementById('message');
+        const charCount = document.getElementById('charCount');
+        charCount.textContent = `${80 - message.value.length}/80`;
+    }
+
+    function sendMessage() {
+        const callsign = getCookie('callsign');
+        const password = getCookie('password');
+        const destination = document.getElementById('destination').value;
+        const message = document.getElementById('message').value;
+
+        if (!callsign || !password || !destination || !message) {
+            alert('Please fill in all fields and save credentials.');
+            return;
+        }
+
+        const sendButton = document.querySelector('button[onclick="sendMessage()"]');
+        document.getElementById('sendText').classList.add('hidden');
+        document.getElementById('loading').classList.remove('hidden');
+
+        fetch('http://hampager.de:8080/calls', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Basic ' + btoa(`${callsign}:${password}`)
+            },
+            body: JSON.stringify({
+                text: message,
+                callSignNames: [destination],
+                transmitterGroupNames: ["txgroup"],
+                emergency: false
+            })
+        })
+            .then(response => {
+                document.getElementById('sendText').classList.remove('hidden');
+                document.getElementById('loading').classList.add('hidden');
+                alert(response.ok ? 'Message sent successfully!' : 'Failed to send message');
+            })
+            .catch(() => {
+                document.getElementById('sendText').classList.remove('hidden');
+                document.getElementById('loading').classList.add('hidden');
+                alert('Error connecting to server');
+            });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Contact: wy7emt@wy7emt.radio
+Encryption: https://wy7emt.radio/.well-known/publickey.wycowboy911@protonmail.com-50ea871bc4c89a3d16abb6f0ebd2da291166bae6.asc
+Acknowledgements: https://wy7emt.radio/.well-known/thanks.html
+Preferred_languages: en
+Expires: 2027-05-24T16:55:00.000Z
+Policy: https://wy7emt.radio/.well-known/security-policy
+Policy: https://wy7emt.radio/.well-known/privacy-policy
+Hiring: Not hiring, no collaborations
+Canonical: https://wy7emt.radio/.well-known/security.txt
